@@ -2,7 +2,7 @@
 -- 
 -- This was based on the M1 work from @iains (see https://github.com/iains/gcc-11-branch/issues/3#issuecomment-1141065779)
 --
---   https://github.com/iains/gcc-11-branch/tree/gcc-11-3-darwin-pre-r2
+--   https://github.com/iains/gcc-12-branch/tree/gcc-12-1-darwin-pre-r1
 --
 -- So cloned that branch:
 --

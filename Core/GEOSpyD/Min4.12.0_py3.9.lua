@@ -1,12 +1,12 @@
 -- File for GEOSpyD
 --
--- Installed using the Anaconda installer script on github:
+-- Installed using the GEOSpyD installer script on github:
 --
---   git@github.com:mathomp4/anaconda.git
+--   git@github.com:GMAO-SI-Team/GEOSpyD.git
 --
 -- and I ran
 -- 
---   ./install_miniconda.bash --python_version 3.9 --miniconda_version 4.11.0 --prefix /Users/mathomp4/installed/Core/GEOSpyD
+--   ./install_miniconda.bash --python_version 3.9 --miniconda_version 4.12.0 --prefix /Users/mathomp4/installed/Core/GEOSpyD |& tee install.4.12.0.log
 --
 -- NOTE: You'll need to set the date below!
 --
@@ -16,10 +16,10 @@ family("Python3")
 local homedir = os.getenv("HOME")
 local installdir = pathJoin(homedir,"installed/Core/GEOSpyD")
 
-local miniconda_version = "4.11.0"
+local miniconda_version = "4.12.0"
 local python_version = "3.9"
 local geospyd_version = miniconda_version .. "_py" .. python_version
-local builddate = "2022-05-12"
+local builddate = "2022-08-10"
 
 local pathdir = pathJoin(geospyd_version,builddate)
 local pkgdir = pathJoin(installdir,pathdir)
