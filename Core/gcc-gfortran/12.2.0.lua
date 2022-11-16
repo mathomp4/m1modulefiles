@@ -25,8 +25,12 @@
 --
 --   make -j6 |& tee make.log
 --   make install |& tee makeinstall.log
+--
+-- If you are paranoid, you can run:
+--
 --   make check |& tee makecheck.log
 --
+-- but it will take a looooooooong time
 
 family("Compiler")
 
