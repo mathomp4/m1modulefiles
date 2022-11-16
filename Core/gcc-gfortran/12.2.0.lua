@@ -23,7 +23,7 @@
 --   ../gcc-12-branch/configure --prefix=$HOME/installed/Core/gcc-gfortran/12.2.0 \
 --      --enable-languages=c,c++,fortran --with-sysroot=/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk |& tee configure.log
 --
---   make -j4 |& tee make.log
+--   make -j6 |& tee make.log
 --   make install |& tee makeinstall.log
 --   make check |& tee makecheck.log
 --
