@@ -17,21 +17,21 @@
 --
 -- This was built using:
 --
--- $ mkdir build-nag-7.1_7115 && cd build-nag-7.1_7115
+-- $ mkdir build-nag-7.1.15 && cd build-nag-7.1.15
 -- $ ../configure --disable-wrapper-rpath --disable-wrapper-runpath \
---     --prefix=$HOME/installed/Compiler/nag-7.1_7115/openmpi/4.1.4 |& tee configure.nag-7.1_7115.log
+--     --prefix=$HOME/installed/Compiler/nag-7.1.15/openmpi/4.1.4 |& tee configure.nag-7.1.15.log
 --
--- $ mv config.log config.nag-7.1_7115.log
--- $ make -j4 |& tee make.nag-7.1_7115.log
--- $ make install |& tee makeinstall.nag-7.1_7115.log
--- $ make check |& tee makecheck.nag-7.1_7115.log
+-- $ mv config.log config.nag-7.1.15.log
+-- $ make -j4 |& tee make.nag-7.1.15.log
+-- $ make install |& tee makeinstall.nag-7.1.15.log
+-- $ make check |& tee makecheck.nag-7.1.15.log
 --
 -- ]]
 
 family("MPI")
-prereq("nag/7.1_7115")
+prereq("nag/7.1.15")
 
-local compilername = "nag-7.1_7115"
+local compilername = "nag-7.1.15"
 
 local version = "4.1.4"
 local compiler = pathJoin("Compiler",compilername)
@@ -41,7 +41,7 @@ local pkgdir = pathJoin(installdir,compiler,"openmpi",version)
 
 -- Setup Modulepath for packages built by this MPI stack
 local mroot = os.getenv("MODULEPATH_ROOT")
-local mdir = pathJoin(mroot,"MPI/nag-7.1_7115",("openmpi-"..version))
+local mdir = pathJoin(mroot,"MPI/nag-7.1.15",("openmpi-"..version))
 prepend_path("MODULEPATH", mdir)
 
 setenv("OPENMPI",pkgdir)
