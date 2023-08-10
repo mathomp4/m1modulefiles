@@ -14,6 +14,13 @@
 --   ln -s $(brew --prefix)/bin/glibtool $HOME/bin/libtool
 --
 -- NOTE THE LAST ONE! Brew installs glibtool, so as not to collide with clang libtool
+--
+-- Also: To build udunits2 (and then nco and cdo) you need to install the texinfo package
+--
+--   brew install texinfo
+--
+-- as udunits2 needs makeinfo.
+--
 -- ]]
 
 family("Baselibs")
