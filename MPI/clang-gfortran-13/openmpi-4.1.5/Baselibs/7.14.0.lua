@@ -5,7 +5,7 @@
 --   git clone -j 4 --recurse-submodules -b v7.14.0 https://github.com/GEOS-ESM/ESMA-Baselibs.git ESMA-Baselibs-7.14.0/src
 --
 -- This was built using:
--- $ make -j6 install ESMF_COMM=openmpi ESMF_COMPILER=gfortranclang prefix=$HOME/installed/MPI/clang-gfortran-12.2.0/openmpi-4.1.5/Baselibs/7.14.0/Darwin |& tee makeinstall.clang-gfortran-12.2.0_openmpi-4.1.5.log
+-- $ make -j6 install ESMF_COMM=openmpi ESMF_COMPILER=gfortranclang prefix=$HOME/installed/MPI/clang-gfortran-13/openmpi-4.1.5/Baselibs/7.14.0/Darwin |& tee makeinstall.clang-gfortran-13_openmpi-4.1.5.log
 --
 -- NOTE: To build curl on Parcel, I had to do:
 --
@@ -18,19 +18,12 @@
 --   ln -s $(brew --prefix)/bin/glibtool $HOME/bin/libtool
 --
 -- NOTE THE LAST ONE! Brew installs glibtool, so as not to collide with clang libtool
---
--- Also: To build udunits2 (and then nco and cdo) you need to install the texinfo package
---
---   brew install texinfo
---
--- as udunits2 needs makeinfo.
---
 -- ]]
 
 family("Baselibs")
---prereq("clang-gfortran/12.2.0", "openmpi/4.1.5")
+prereq("clang-gfortran/13", "openmpi/4.1.5")
 
-local compilername = "clang-gfortran-12.2.0"
+local compilername = "clang-gfortran-13"
 local mpiname = "openmpi-4.1.5"
 
 local version = myModuleVersion()

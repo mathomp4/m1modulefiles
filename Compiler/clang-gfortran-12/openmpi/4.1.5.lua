@@ -3,21 +3,21 @@
 -- NOTE NOTE NOTE Added new OMPI_MCA flag from https://github.com/open-mpi/ompi/issues/8350
 --
 -- This was built using:
--- $ mkdir build-clang-gfortran-13.1.0 && cd build-clang-gfortran-13.1.0
+-- $ mkdir build-clang-gfortran-12 && cd build-clang-gfortran-12
 -- $ ../configure --disable-wrapper-rpath --disable-wrapper-runpath \
---    CC=clang CXX=clang++ FC=gfortran-13 \
---    --prefix=$HOME/installed/Compiler/clang-gfortran-13.1.0/openmpi/4.1.5 |& tee configure.clang-gfortran-13.1.0.log
--- $ mv config.log config.clang-gfortran-13.1.0.log
--- $ make -j6 |& tee make.clang-gfortran-13.1.0.log
--- $ make install |& tee makeinstall.clang-gfortran-13.1.0.log
--- $ make check |& tee makecheck.clang-gfortran-13.1.0.log
+--    CC=clang CXX=clang++ FC=gfortran-12 \
+--    --prefix=$HOME/installed/Compiler/clang-gfortran-12/openmpi/4.1.5 |& tee configure.clang-gfortran-12.log
+-- $ mv config.log config.clang-gfortran-12.log
+-- $ make -j6 |& tee make.clang-gfortran-12.log
+-- $ make install |& tee makeinstall.clang-gfortran-12.log
+-- $ make check |& tee makecheck.clang-gfortran-12.log
 --
 -- ]]
 
 family("MPI")
-prereq("clang-gfortran/13.1.0")
+prereq("clang-gfortran/12")
 
-local compilername = "clang-gfortran-13.1.0"
+local compilername = "clang-gfortran-12"
 
 local version = "4.1.5"
 local compiler = pathJoin("Compiler",compilername)
@@ -27,7 +27,7 @@ local pkgdir = pathJoin(installdir,compiler,"openmpi",version)
 
 -- Setup Modulepath for packages built by this MPI stack
 local mroot = os.getenv("MODULEPATH_ROOT")
-local mdir = pathJoin(mroot,"MPI/clang-gfortran-13.1.0",("openmpi-"..version))
+local mdir = pathJoin(mroot,"MPI/clang-gfortran-12",("openmpi-"..version))
 prepend_path("MODULEPATH", mdir)
 
 setenv("OPENMPI",pkgdir)
