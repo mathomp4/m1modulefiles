@@ -43,6 +43,12 @@ prepend_path("DYLD_LIBRARY_PATH",pathJoin(fpkgdir,"compiler/lib"))
 prepend_path("INCLUDE_PATH",pathJoin(fpkgdir,"compiler/include"))
 prepend_path("MANPATH",fdocdir)
 
+-- The below won't work because libomp on Arm Macs is built for Arm
+-- per scivision, set OpenMP_ROOT for clang: https://gist.github.com/scivision/16c2ca1dc250f54d34f1a1a35596f4a0
+-- local userhomedir = os.getenv("HOME")
+-- local homebrewdir = pathJoin(userhomedir,".homebrew/brew")
+-- setenv("OpenMP_ROOT",pathJoin(homebrewdir,"opt/libomp"))
+
 -- MAT: Note it looks like 2022.0 does need this again
 --
 --   To test this, use hyperfine. With the hack:

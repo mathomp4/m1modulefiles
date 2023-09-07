@@ -3,6 +3,8 @@
 --
 -- $ make -j4 install ESMF_COMM=openmpi ESMF_COMPILER=intelclang prefix=$HOME/installed/MPI/intel-clang-2023.2.0/openmpi-4.1.5/Baselibs/7.14.0/Darwin |& tee makeinstall.intel-clang-2023.2.0_openmpi-4.1.5.log
 --
+-- NOTE: xgboost will not build because Rosetta2 + clang + libomp from brew doesn't work
+--
 -- NOTE: To build curl on Parcel, I had to do:
 -- 
 --   brew install automake autoconf libtool
