@@ -5,7 +5,7 @@
 --   git clone -j 4 --recurse-submodules -b v7.14.0 https://github.com/GEOS-ESM/ESMA-Baselibs.git ESMA-Baselibs-7.14.0/src
 --
 -- This was built using:
--- $ make -j6 install ESMF_COMM=openmpi ESMF_COMPILER=gfortranclang prefix=$HOME/installed/MPI/clang-gfortran-12/openmpi-4.1.5/Baselibs/7.14.0/Darwin |& tee makeinstall.clang-gfortran-12_openmpi-4.1.5.log
+-- $ make -j6 install ESMF_COMM=openmpi ESMF_COMPILER=gfortran prefix=$HOME/installed/MPI/gcc-gfortran-12/openmpi-5.0.0rc12/Baselibs/7.14.0/Darwin |& tee makeinstall.gcc-gfortran-12_openmpi-5.0.0rc12.log
 --
 -- NOTE: To build curl on Parcel, I had to do:
 --
@@ -28,10 +28,10 @@
 -- ]]
 
 family("Baselibs")
-prereq("clang-gfortran/12", "openmpi/4.1.5")
+prereq("gcc-gfortran/12", "openmpi/5.0.0rc12")
 
-local compilername = "clang-gfortran-12"
-local mpiname = "openmpi-4.1.5"
+local compilername = "gcc-gfortran-12"
+local mpiname = "openmpi-5.0.0rc12"
 
 local version = myModuleVersion()
 local pathdir = pathJoin("MPI",compilername,mpiname)

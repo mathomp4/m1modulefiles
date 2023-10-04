@@ -1,16 +1,12 @@
 -- [[
---
 -- This was built using:
--- $ make -j6 install ESMF_COMM=openmpi ESMF_COMPILER=gfortran prefix=$HOME/installed/MPI/gcc-gfortran-13.1.0/openmpi-4.1.5/Baselibs/7.14.0/Darwin |& tee makeinstall.gcc-gfortran-13.1.0_openmpi-4.1.5.log
 --
--- If you want to check:
+-- $ make -j4 install ESMF_COMM=openmpi ESMF_COMPILER=intelclang prefix=$HOME/installed/MPI/intel-clang-2023.2.0/openmpi-5.0.0rc12/Baselibs/7.14.0/Darwin |& tee makeinstall.intel-clang-2023.2.0_openmpi-5.0.0rc12.log
 --
--- $ make check ESMF_COMM=openmpi ESMF_COMPILER=gfortran prefix=$HOME/installed/MPI/gcc-gfortran-13.1.0/openmpi-4.1.5/Baselibs/7.14.0/Darwin |& tee makecheck.gcc-gfortran-13.1.0_openmpi-4.1.5.log
---
--- NOTE: This might not work with all libraries, so you might have to do things individually using ALLDIRS
+-- NOTE: xgboost will not build because Rosetta2 + clang + libomp from brew doesn't work
 --
 -- NOTE: To build curl on Parcel, I had to do:
---
+-- 
 --   brew install automake autoconf libtool
 --
 -- then I had to make symlinks so that it could find these:
@@ -20,15 +16,16 @@
 --   ln -s $(brew --prefix)/bin/glibtool $HOME/bin/libtool
 --
 -- NOTE THE LAST ONE! Brew installs glibtool, so as not to collide with clang libtool
+--
+--
 -- ]]
 
 family("Baselibs")
---prereq("gcc-gfortran/13.1.0", "openmpi/4.1.5")
 
-local compilername = "gcc-gfortran-13.1.0"
-local mpiname = "openmpi-4.1.5"
+local compilername = "intel-clang-2023.2.0"
+local mpiname = "openmpi-5.0.0rc12"
 
-local version = myModuleVersion()
+local version = "7.14.0"
 local pathdir = pathJoin("MPI",compilername,mpiname)
 local homedir = os.getenv("HOME")
 local installdir = pathJoin(homedir,"installed")
