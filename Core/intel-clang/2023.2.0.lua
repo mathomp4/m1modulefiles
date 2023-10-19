@@ -65,10 +65,10 @@ prepend_path("MANPATH",fdocdir)
 --     Time (mean ± σ):      1.607 s ±  0.223 s    [User: 1.038 s, System: 0.633 s]
 --     Range (min … max):    1.457 s …  2.033 s    10 runs
 --
--- local sdk_version = subprocess("xcodebuild -sdk macosx -version | grep SDKVersion")
--- setenv("INTEL_OSXSDK_VER",sdk_version)
--- -- 
--- local sdk_path = subprocess("xcodebuild -sdk macosx -version Path")
--- setenv("INTEL_OSXSDK_PATH",sdk_path)
--- -- 
--- prepend_path("PATH",pathJoin(os.getenv("HOME"),"intelhack"))
+local sdk_version = subprocess("xcodebuild -sdk macosx -version | grep SDKVersion")
+setenv("INTEL_OSXSDK_VER",sdk_version)
+-- 
+local sdk_path = subprocess("xcodebuild -sdk macosx -version Path")
+setenv("INTEL_OSXSDK_PATH",sdk_path)
+-- 
+prepend_path("PATH",pathJoin(os.getenv("HOME"),"intelhack"))
