@@ -6,7 +6,7 @@
 --
 -- and I ran
 -- 
---   ./install_miniconda.bash --python_version 3.11 --miniconda_version 23.5.2-0 --prefix /Users/mathomp4/installed/Core/GEOSpyD |& tee install.23.5.2-0_py3.11.log
+--   ./install_miniconda.bash --python_version 3.11 --miniconda_version 23.5.2-0 --prefix /Users/mathomp4/installed/Core/GEOSpyD |& tee install.23.5.2-0_py3.11.2023-10-19.log
 --
 -- NOTE: You'll need to set the date below!
 --
@@ -19,7 +19,7 @@ local installdir = pathJoin(homedir,"installed/Core/GEOSpyD")
 local miniconda_version = "23.5.2-0"
 local python_version = "3.11"
 local geospyd_version = miniconda_version .. "_py" .. python_version
-local builddate = "2023-07-17"
+local builddate = "2023-10-19"
 
 local pathdir = pathJoin(geospyd_version,builddate)
 local pkgdir = pathJoin(installdir,pathdir)
