@@ -39,6 +39,7 @@ setenv("FC",pathJoin(fbindir,"ifort"))
 setenv("F90",pathJoin(fbindir,"ifort"))
 
 prepend_path("PATH",fbindir)
+prepend_path("LD_LIBRARY_PATH",pathJoin(fpkgdir,"compiler/lib"))
 prepend_path("DYLD_LIBRARY_PATH",pathJoin(fpkgdir,"compiler/lib"))
 prepend_path("INCLUDE_PATH",pathJoin(fpkgdir,"compiler/include"))
 prepend_path("MANPATH",fdocdir)
