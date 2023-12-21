@@ -23,10 +23,3 @@ setenv("F90",pathJoin(fbindir,"gfortran-12"))
 
 -- per scivision, set OpenMP_ROOT for clang: https://gist.github.com/scivision/16c2ca1dc250f54d34f1a1a35596f4a0
 setenv("OpenMP_ROOT",pathJoin(homebrewdir,"opt/libomp"))
-
--- We used to do this in zshrc 
---   #export MACOSX_DEPLOYMENT_TARGET=$(sw_vers -productVersion)
--- but that interfered with...something. So we do it here. Note
--- that we need to chomp the newline from the subprocess call.
-local sw_vers = subprocess("sw_vers -productVersion"):gsub("\n$","")
-setenv("MACOSX_DEPLOYMENT_TARGET",sw_vers)
