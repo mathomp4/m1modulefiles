@@ -53,3 +53,4 @@ prepend_path("LD_LIBRARY_PATH",pathJoin(pkgdir,"Darwin/lib"))
 prepend_path("DYLD_LIBRARY_PATH",pathJoin(pkgdir,"Darwin/lib"))
 prepend_path("MANPATH",pathJoin(pkgdir,"Darwin/share/man"))
 
+setenv("UDUNITS2_XML_PATH",pathJoin(pkgdir,"Darwin/share/udunits/udunits2.xml"))

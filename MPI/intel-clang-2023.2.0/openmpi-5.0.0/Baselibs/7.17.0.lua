@@ -45,6 +45,8 @@ prepend_path("LD_LIBRARY_PATH",pathJoin(pkgdir,"Darwin/lib"))
 prepend_path("DYLD_LIBRARY_PATH",pathJoin(pkgdir,"Darwin/lib"))
 prepend_path("MANPATH",pathJoin(pkgdir,"Darwin/share/man"))
 
+setenv("UDUNITS2_XML_PATH",pathJoin(pkgdir,"Darwin/share/udunits/udunits2.xml"))
+
 -- Testing showed that when we built GEOS, it said it was trying to build
 -- for macOS 10.6 or something stupid. So, for now we set this when we load
 -- the Baselibs module as it didn't seem necessary before this
