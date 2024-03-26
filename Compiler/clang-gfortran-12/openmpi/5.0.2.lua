@@ -10,7 +10,7 @@
 -- $ ../configure --disable-wrapper-rpath --disable-wrapper-runpath \
 --    CC=clang CXX=clang++ FC=gfortran-12 \
 --    --with-hwloc=internal --with-libevent=internal --with-pmix=internal \
---    --prefix=$HOME/installed/Compiler/clang-gfortran-12/openmpi/5.0.0 |& tee configure.clang-gfortran-12.log
+--    --prefix=$HOME/installed/Compiler/clang-gfortran-12/openmpi/5.0.2 |& tee configure.clang-gfortran-12.log
 -- $ mv config.log config.clang-gfortran-12.log
 -- $ make -j6 |& tee make.clang-gfortran-12.log
 -- $ make install |& tee makeinstall.clang-gfortran-12.log
@@ -23,7 +23,7 @@ prereq("clang-gfortran/12")
 
 local compilername = "clang-gfortran-12"
 
-local version = "5.0.0"
+local version = "5.0.2"
 local compiler = pathJoin("Compiler",compilername)
 local homedir = os.getenv("HOME")
 local installdir = pathJoin(homedir,"installed")

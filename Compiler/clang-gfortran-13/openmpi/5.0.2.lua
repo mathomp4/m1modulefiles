@@ -6,24 +6,24 @@
 --        even if Brew can provide them (like libevent), it doesn't seem to find them
 --
 -- This was built using:
--- $ mkdir build-gcc-gfortran-12 && cd build-gcc-gfortran-12
+-- $ mkdir build-clang-gfortran-13 && cd build-clang-gfortran-13
 -- $ ../configure --disable-wrapper-rpath --disable-wrapper-runpath \
---    CC=gcc-12 CXX=g++-12 FC=gfortran-12 \
+--    CC=clang CXX=clang++ FC=gfortran-13 \
 --    --with-hwloc=internal --with-libevent=internal --with-pmix=internal \
---    --prefix=$HOME/installed/Compiler/gcc-gfortran-12/openmpi/5.0.0 |& tee configure.gcc-gfortran-12.log
--- $ mv config.log config.gcc-gfortran-12.log
--- $ make -j6 |& tee make.gcc-gfortran-12.log
--- $ make install |& tee makeinstall.gcc-gfortran-12.log
--- $ make check |& tee makecheck.gcc-gfortran-12.log
+--    --prefix=$HOME/installed/Compiler/clang-gfortran-13/openmpi/5.0.2 |& tee configure.clang-gfortran-13.log
+-- $ mv config.log config.clang-gfortran-13.log
+-- $ make -j6 |& tee make.clang-gfortran-13.log
+-- $ make install |& tee makeinstall.clang-gfortran-13.log
+-- $ make check |& tee makecheck.clang-gfortran-13.log
 --
 -- ]]
 
 family("MPI")
-prereq("gcc-gfortran/12")
+prereq("clang-gfortran/13")
 
-local compilername = "gcc-gfortran-12"
+local compilername = "clang-gfortran-13"
 
-local version = "5.0.0"
+local version = "5.0.2"
 local compiler = pathJoin("Compiler",compilername)
 local homedir = os.getenv("HOME")
 local installdir = pathJoin(homedir,"installed")
@@ -31,7 +31,7 @@ local pkgdir = pathJoin(installdir,compiler,"openmpi",version)
 
 -- Setup Modulepath for packages built by this MPI stack
 local mroot = os.getenv("MODULEPATH_ROOT")
-local mdir = pathJoin(mroot,"MPI/gcc-gfortran-12",("openmpi-"..version))
+local mdir = pathJoin(mroot,"MPI/clang-gfortran-13",("openmpi-"..version))
 prepend_path("MODULEPATH", mdir)
 
 setenv("OPENMPI",pkgdir)
