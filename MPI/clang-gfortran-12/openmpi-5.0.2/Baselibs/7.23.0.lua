@@ -1,31 +1,32 @@
--- [[
---
--- This was cloned with:
---
---   git clone -j 4 --recurse-submodules -b v7.23.0 https://github.com/GEOS-ESM/ESMA-Baselibs.git ESMA-Baselibs-7.23.0/src
---
--- This was built using:
--- $ make -j6 install ESMF_COMM=openmpi ESMF_COMPILER=gfortranclang prefix=$HOME/installed/MPI/clang-gfortran-12/openmpi-5.0.2/Baselibs/7.23.0/Darwin |& tee makeinstall.clang-gfortran-12_openmpi-5.0.2.log
---
--- NOTE: To build curl on Parcel, I had to do:
---
---   brew install automake autoconf libtool
---
--- then I had to make symlinks so that it could find these:
---
---   ln -s $(brew --prefix)/bin/automake $HOME/bin/automake
---   ln -s $(brew --prefix)/bin/aclocal $HOME/bin/aclocal
---   ln -s $(brew --prefix)/bin/glibtool $HOME/bin/libtool
---
--- NOTE THE LAST ONE! Brew installs glibtool, so as not to collide with clang libtool
---
--- Also: To build udunits2 (and then nco and cdo) you need to install the texinfo package
---
---   brew install texinfo
---
--- as udunits2 needs makeinfo.
---
--- ]]
+--[[
+
+This was cloned with:
+
+  git clone -j 4 --recurse-submodules -b v7.23.0 https://github.com/GEOS-ESM/ESMA-Baselibs.git ESMA-Baselibs-7.23.0/src
+
+This was built using:
+
+make -j6 install ESMF_COMM=openmpi ESMF_COMPILER=gfortranclang prefix=$HOME/installed/MPI/clang-gfortran-12/openmpi-5.0.2/Baselibs/7.23.0/Darwin |& tee makeinstall.clang-gfortran-12_openmpi-5.0.2.log
+
+NOTE: To build curl on Parcel, I had to do:
+
+  brew install automake autoconf libtool
+
+then I had to make symlinks so that it could find these:
+
+  ln -s $(brew --prefix)/bin/automake $HOME/bin/automake
+  ln -s $(brew --prefix)/bin/aclocal $HOME/bin/aclocal
+  ln -s $(brew --prefix)/bin/glibtool $HOME/bin/libtool
+
+NOTE THE LAST ONE! Brew installs glibtool, so as not to collide with clang libtool
+
+Also: To build udunits2 (and then nco and cdo) you need to install the texinfo package
+
+  brew install texinfo
+
+as udunits2 needs makeinfo.
+
+--]]
 
 family("Baselibs")
 prereq("clang-gfortran/12", "openmpi/5.0.2")

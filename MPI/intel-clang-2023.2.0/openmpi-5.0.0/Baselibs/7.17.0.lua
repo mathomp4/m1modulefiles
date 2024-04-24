@@ -1,24 +1,24 @@
--- [[
--- This was built using:
---
--- $ make -j4 install ESMF_COMM=openmpi ESMF_COMPILER=intelclang prefix=$HOME/installed/MPI/intel-clang-2023.2.0/openmpi-5.0.0/Baselibs/7.17.0/Darwin |& tee makeinstall.intel-clang-2023.2.0_openmpi-5.0.0.log
---
--- NOTE: xgboost will not build because Rosetta2 + clang + libomp from brew doesn't work
---
--- NOTE: To build curl on Parcel, I had to do:
--- 
---   brew install automake autoconf libtool
---
--- then I had to make symlinks so that it could find these:
---
---   ln -s $(brew --prefix)/bin/automake $HOME/bin/automake
---   ln -s $(brew --prefix)/bin/aclocal $HOME/bin/aclocal
---   ln -s $(brew --prefix)/bin/glibtool $HOME/bin/libtool
---
--- NOTE THE LAST ONE! Brew installs glibtool, so as not to collide with clang libtool
---
---
--- ]]
+--[[
+This was built using:
+
+make -j4 install ESMF_COMM=openmpi ESMF_COMPILER=intelclang prefix=$HOME/installed/MPI/intel-clang-2023.2.0/openmpi-5.0.0/Baselibs/7.17.0/Darwin |& tee makeinstall.intel-clang-2023.2.0_openmpi-5.0.0.log
+
+NOTE: xgboost will not build because Rosetta2 + clang + libomp from brew doesn't work
+
+NOTE: To build curl on Parcel, I had to do:
+
+  brew install automake autoconf libtool
+
+then I had to make symlinks so that it could find these:
+
+  ln -s $(brew --prefix)/bin/automake $HOME/bin/automake
+  ln -s $(brew --prefix)/bin/aclocal $HOME/bin/aclocal
+  ln -s $(brew --prefix)/bin/glibtool $HOME/bin/libtool
+
+NOTE THE LAST ONE! Brew installs glibtool, so as not to collide with clang libtool
+
+
+--]]
 
 family("Baselibs")
 

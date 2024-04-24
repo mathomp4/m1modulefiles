@@ -1,22 +1,25 @@
--- [[
---
--- NOTE1: Added new OMPI_MCA flag from https://github.com/open-mpi/ompi/issues/8350
---
--- NOTE2: Added the hwloc, libevent, and pmix line as Open MPI 5 seems to need these and
---        even if Brew can provide them (like libevent), it doesn't seem to find them
---
--- This was built using:
--- $ mkdir build-gcc-gfortran-12 && cd build-gcc-gfortran-12
--- $ ../configure --disable-wrapper-rpath --disable-wrapper-runpath \
---    CC=gcc-12 CXX=g++-12 FC=gfortran-12 \
---    --with-hwloc=internal --with-libevent=internal --with-pmix=internal \
---    --prefix=$HOME/installed/Compiler/gcc-gfortran-12/openmpi/5.0.2 |& tee configure.gcc-gfortran-12.log
--- $ mv config.log config.gcc-gfortran-12.log
--- $ make -j6 |& tee make.gcc-gfortran-12.log
--- $ make install |& tee makeinstall.gcc-gfortran-12.log
--- $ make check |& tee makecheck.gcc-gfortran-12.log
---
--- ]]
+--[[
+
+NOTE1: Added new OMPI_MCA flag from https://github.com/open-mpi/ompi/issues/8350
+
+NOTE2: Added the hwloc, libevent, and pmix line as Open MPI 5 seems to need these and
+       even if Brew can provide them (like libevent), it doesn't seem to find them
+
+This was built using:
+
+mkdir build-gcc-gfortran-12 && cd build-gcc-gfortran-12
+
+../configure --disable-wrapper-rpath --disable-wrapper-runpath \
+  CC=gcc-12 CXX=g++-12 FC=gfortran-12 \
+  --with-hwloc=internal --with-libevent=internal --with-pmix=internal \
+  --prefix=$HOME/installed/Compiler/gcc-gfortran-12/openmpi/5.0.2 |& tee configure.gcc-gfortran-12.log
+
+mv config.log config.gcc-gfortran-12.log
+make -j6 |& tee make.gcc-gfortran-12.log
+make install |& tee makeinstall.gcc-gfortran-12.log
+make check |& tee makecheck.gcc-gfortran-12.log
+
+--]]
 
 family("MPI")
 prereq("gcc-gfortran/12")
