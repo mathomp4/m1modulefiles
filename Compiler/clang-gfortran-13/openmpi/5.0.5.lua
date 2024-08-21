@@ -1,20 +1,25 @@
 --[[
 
- NOTE1: Added new OMPI_MCA flag from https://github.com/open-mpi/ompi/issues/8350
+NOTE1: Added new OMPI_MCA flag from https://github.com/open-mpi/ompi/issues/8350
 
- NOTE2: Added the hwloc, libevent, and pmix line as Open MPI 5 seems to need these and
-        even if Brew can provide them (like libevent), it doesn't seem to find them
+NOTE2: Added the hwloc, libevent, and pmix line as Open MPI 5 seems to need these and
+       even if Brew can provide them (like libevent), it doesn't seem to find them
 
- This was built using:
- mkdir build-clang-gfortran-13 && cd build-clang-gfortran-13
- ../configure --disable-wrapper-rpath --disable-wrapper-runpath \
-   CC=clang CXX=clang++ FC=gfortran-13 \
-   --with-hwloc=internal --with-libevent=internal --with-pmix=internal \
-   --prefix=$HOME/installed/Compiler/clang-gfortran-13/openmpi/5.0.2 |& tee configure.clang-gfortran-13.log
- mv config.log config.clang-gfortran-13.log
- make -j6 |& tee make.clang-gfortran-13.log
- make install |& tee makeinstall.clang-gfortran-13.log
- make check |& tee makecheck.clang-gfortran-13.log
+This was built using:
+
+ml clang-gfortran/13
+
+mkdir build-clang-gfortran-13 && cd build-clang-gfortran-13
+
+../configure --disable-wrapper-rpath --disable-wrapper-runpath \
+  CC=clang CXX=clang++ FC=gfortran-13 \
+  --with-hwloc=internal --with-libevent=internal --with-pmix=internal \
+  --prefix=$HOME/installed/Compiler/clang-gfortran-13/openmpi/5.0.5 |& tee configure.clang-gfortran-13.log
+
+mv config.log config.clang-gfortran-13.log
+make -j6 |& tee make.clang-gfortran-13.log
+make install |& tee makeinstall.clang-gfortran-13.log
+make check |& tee makecheck.clang-gfortran-13.log
 
 --]]
 
@@ -23,7 +28,7 @@ prereq("clang-gfortran/13")
 
 local compilername = "clang-gfortran-13"
 
-local version = "5.0.2"
+local version = "5.0.5"
 local compiler = pathJoin("Compiler",compilername)
 local homedir = os.getenv("HOME")
 local installdir = pathJoin(homedir,"installed")
