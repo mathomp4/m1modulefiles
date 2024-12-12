@@ -2,11 +2,11 @@
 
 This was cloned with:
 
-  git clone -j 4 --recurse-submodules -b v8.5.0 https://github.com/GEOS-ESM/ESMA-Baselibs.git ESMA-Baselibs-8.5.0/src
+  git clone -j 4 --recurse-submodules -b v8.7.0 https://github.com/GEOS-ESM/ESMA-Baselibs.git ESMA-Baselibs-8.7.0/src
 
 This was built using:
 
-make -j6 install ESMF_COMM=openmpi ESMF_COMPILER=gfortranclang prefix=$HOME/installed/MPI/clang-gfortran-14/openmpi-5.0.5/Baselibs/8.5.0/Darwin |& tee makeinstall.clang-gfortran-14_openmpi-5.0.5.log
+make -j6 install ESMF_COMM=openmpi ESMF_COMPILER=gfortranclang prefix=$HOME/installed/MPI/clang-gfortran-14/openmpi-5.0.5/Baselibs/8.7.0-with-FMSmix/Darwin |& tee makeinstall.clang-gfortran-14_openmpi-5.0.5.log
 
 NOTE: To build curl on Parcel, I had to do:
 
