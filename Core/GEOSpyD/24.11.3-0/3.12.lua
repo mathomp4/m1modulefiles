@@ -6,7 +6,7 @@ Installed using the GEOSpyD installer script on github:
 
 and I ran
 
-  ./install_miniforge.bash --python_version 3.12 --miniforge_version 24.9.2-0 --prefix /Users/mathomp4/installed/Core/GEOSpyD |& tee install.24.9.2-0_py3.12.log
+  ./install_miniforge.bash --python_version 3.12 --miniforge_version 24.11.3-0 --prefix /Users/mathomp4/installed/Core/GEOSpyD |& tee install.24.11.3-0_py3.12.log
 
 NOTE: You'll need to set the date below!
 --]]
@@ -16,9 +16,9 @@ family("Python3")
 local homedir = os.getenv("HOME")
 local installdir = pathJoin(homedir,"installed/Core/GEOSpyD")
 
-local miniforge_version = "24.9.2-0"
+local miniforge_version = "24.11.3-0"
 local python_version = "py3.12"
-local builddate = "2024-11-27"
+local builddate = "2025-03-06"
 
 local pathdir = pathJoin(miniforge_version,builddate,'envs',python_version)
 local pkgdir = pathJoin(installdir,pathdir)
