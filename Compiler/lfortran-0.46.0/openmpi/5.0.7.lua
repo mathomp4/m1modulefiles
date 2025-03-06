@@ -7,26 +7,28 @@ NOTE2: Added the hwloc, libevent, and pmix line as Open MPI 5 seems to need thes
 
 This was built using:
 
-mkdir build-lfortran-0.33.0 && cd build-lfortran-0.33.0
+ml lfortran/0.46.0
+
+mkdir build-lfortran-0.46.0 && cd build-lfortran-0.46.0
 
 ../configure --disable-wrapper-rpath --disable-wrapper-runpath \
-  CC=clang CXX=clang++ FC=gfortran-12 \
+  CC=clang CXX=clang++ FC=lfortran \
   --with-hwloc=internal --with-libevent=internal --with-pmix=internal \
-  --prefix=$HOME/installed/Compiler/lfortran-0.33.0/openmpi/5.0.0 |& tee configure.lfortran-0.33.0.log
+  --prefix=$HOME/installed/Compiler/lfortran-0.46.0/openmpi/5.0.7 |& tee configure.lfortran-0.46.0.log
 
-mv config.log config.lfortran-0.33.0.log
-make -j6 |& tee make.lfortran-0.33.0.log
-make install |& tee makeinstall.lfortran-0.33.0.log
-make check |& tee makecheck.lfortran-0.33.0.log
+mv config.log config.lfortran-0.46.0.log
+make -j6 |& tee make.lfortran-0.46.0.log
+make install |& tee makeinstall.lfortran-0.46.0.log
+make check |& tee makecheck.lfortran-0.46.0.log
 
 --]]
 
 family("MPI")
-prereq("clang-gfortran/12")
+prereq("lfortran/0.46.0")
 
-local compilername = "lfortran-0.33.0"
+local compilername = "lfortran-0.46.0"
 
-local version = "5.0.0"
+local version = "5.0.7"
 local compiler = pathJoin("Compiler",compilername)
 local homedir = os.getenv("HOME")
 local installdir = pathJoin(homedir,"installed")
@@ -34,7 +36,7 @@ local pkgdir = pathJoin(installdir,compiler,"openmpi",version)
 
 -- Setup Modulepath for packages built by this MPI stack
 local mroot = os.getenv("MODULEPATH_ROOT")
-local mdir = pathJoin(mroot,"MPI/lfortran-0.33.0",("openmpi-"..version))
+local mdir = pathJoin(mroot,"MPI/lfortran-0.46.0",("openmpi-"..version))
 prepend_path("MODULEPATH", mdir)
 
 setenv("OPENMPI",pkgdir)
