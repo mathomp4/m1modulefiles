@@ -33,5 +33,5 @@ setenv("FC",pathJoin(fbindir,"lfortran"))
 setenv("F90",pathJoin(fbindir,"lfortran"))
 
 -- per scivision, set OpenMP_ROOT for clang: https://gist.github.com/scivision/16c2ca1dc250f54d34f1a1a35596f4a0
-local homebrewdir = pathJoin(homedir,".homebrew/brew")
+local homebrewdir = os.getenv("BREWPATH")
 setenv("OpenMP_ROOT",pathJoin(homebrewdir,"opt/libomp"))

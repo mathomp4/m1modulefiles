@@ -12,4 +12,13 @@ module use $MODULEPATH_ROOT/Core
 
 where the `MODULEPATH_ROOT` points to where you install your module files.
 
-Note: This assumes that you have your path set up *before* this so that `brew --prefix` can work. You can also just hard code in that path (say `/usr/local/` or `$HOME/.homebrew`.
+
+## Set BREWPATH in your environment
+
+These modulefiles assume you'll have `BREWPATH` set in your environment so they
+can find the Homebrew installation. You can do this by adding the following to
+your `.bashrc` or `.zshrc`:
+
+```
+export BREWPATH=$(brew --prefix)
+```

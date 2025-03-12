@@ -1,5 +1,5 @@
--- stub routine for clang + gfortran-13 from brew  
--- 
+-- stub routine for clang + gfortran-13 from brew
+--
 -- install gcc-13 via:
 --   brew install gcc@13
 
@@ -7,7 +7,7 @@ family("Compiler")
 
 local version = "13"
 local homedir = os.getenv("HOME")
-local homebrewdir = pathJoin(homedir,".homebrew/brew")
+local homebrewdir = os.getenv("BREWPATH")
 local cbindir = pathJoin("/usr/bin")
 local fbindir = pathJoin(homebrewdir,"bin")
 
