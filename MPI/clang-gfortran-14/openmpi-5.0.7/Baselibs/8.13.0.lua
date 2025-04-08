@@ -6,7 +6,7 @@ This was cloned with:
 
 This was built using:
 
-make -j6 install ESMF_COMM=openmpi ESMF_COMPILER=gfortranclang prefix=$HOME/installed/MPI/clang-gfortran-14/openmpi-4.1.8/Baselibs/8.13.0/Darwin |& tee makeinstall.clang-gfortran-14_openmpi-4.1.8.log
+make -j6 install ESMF_COMM=openmpi ESMF_COMPILER=gfortranclang prefix=$HOME/installed/MPI/clang-gfortran-14/openmpi-5.0.7/Baselibs/8.13.0/Darwin |& tee makeinstall.clang-gfortran-14_openmpi-5.0.7.log
 
 NOTE: To build curl on Parcel, I had to do:
 
@@ -29,10 +29,10 @@ as udunits2 needs makeinfo.
 --]]
 
 family("Baselibs")
-prereq("clang-gfortran/14", "openmpi/4.1.8")
+prereq("clang-gfortran/14", "openmpi/5.0.7")
 
 local compilername = "clang-gfortran-14"
-local mpiname = "openmpi-4.1.8"
+local mpiname = "openmpi-5.0.7"
 
 local version = myModuleVersion()
 local pathdir = pathJoin("MPI",compilername,mpiname)

@@ -5,6 +5,8 @@ NOTE1: Added new OMPI_MCA flag from https://github.com/open-mpi/ompi/issues/8350
 NOTE2: Added the hwloc, libevent, and pmix line as Open MPI 5 seems to need these and
        even if Brew can provide them (like libevent), it doesn't seem to find them
 
+NOTE3: I had to patch Open MPI 5.0.7 due to https://github.com/open-mpi/ompi/pull/13106/files
+
 This was built using:
 
 ml clang-gfortran/14
