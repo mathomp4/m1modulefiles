@@ -18,7 +18,7 @@ local installdir = pathJoin(homedir,"installed/Core/GEOSpyD")
 
 local miniforge_version = "24.11.3-0"
 local python_version = "py3.13"
-local builddate = "2025-03-06"
+local builddate = "2025-04-09"
 
 local pathdir = pathJoin(miniforge_version,builddate,'envs',python_version)
 local pkgdir = pathJoin(installdir,pathdir)
