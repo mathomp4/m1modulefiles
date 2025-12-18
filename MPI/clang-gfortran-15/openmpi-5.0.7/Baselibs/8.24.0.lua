@@ -2,13 +2,15 @@
 
 This was cloned with:
 
-  git clone -j 4 --recurse-submodules -b v9.1.0 https://github.com/GEOS-ESM/ESMA-Baselibs.git ESMA-Baselibs-9.1.0/src
+  git clone -j 4 --recurse-submodules -b v8.24.0 https://github.com/GEOS-ESM/ESMA-Baselibs.git ESMA-Baselibs-8.24.0/src
 
 This was built using:
 
-ml gcc-gfortran/15 openmpi/5.0.7
+ml clang-gfortran/15 openmpi/5.0.7
 
-make -j6 install ESMF_COMM=openmpi ESMF_COMPILER=gfortran prefix=$HOME/installed/MPI/gcc-gfortran-15/openmpi-5.0.7/Baselibs/9.1.0/Darwin |& tee makeinstall.gcc-gfortran-15_openmpi-5.0.7.log
+NOTE: It looks like ESMF_BOPT=g is still needed to successfully build MAPL3 unit tests
+
+make -j6 install ESMF_COMM=openmpi ESMF_COMPILER=gfortranclang ESMF_BOPT=g prefix=$HOME/installed/MPI/clang-gfortran-15/openmpi-5.0.7/Baselibs/8.24.0/Darwin |& tee makeinstall.clang-gfortran-15_openmpi-5.0.7.log
 
 NOTE: To build curl on Parcel, I had to do:
 
@@ -31,9 +33,9 @@ as udunits2 needs makeinfo.
 --]]
 
 family("Baselibs")
-prereq("gcc-gfortran/15", "openmpi/5.0.7")
+prereq("clang-gfortran/15", "openmpi/5.0.7")
 
-local compilername = "gcc-gfortran-15"
+local compilername = "clang-gfortran-15"
 local mpiname = "openmpi-5.0.7"
 
 local version = myModuleVersion()
