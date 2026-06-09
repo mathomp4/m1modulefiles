@@ -5,32 +5,30 @@ NOTE1: Added new OMPI_MCA flag from https://github.com/open-mpi/ompi/issues/8350
 NOTE2: Added the hwloc, libevent, and pmix line as Open MPI 5 seems to need these and
        even if Brew can provide them (like libevent), it doesn't seem to find them
 
-NOTE3: I had to patch Open MPI 5.0.7 due to https://github.com/open-mpi/ompi/pull/13106/files
-
 This was built using:
 
-ml gcc-gfortran/14
+ml appleclang-flang/22
 
-mkdir build-gcc-gfortran-14 && cd build-gcc-gfortran-14
+mkdir build-appleclang-flang-22 && cd build-appleclang-flang-22
 
 ../configure --disable-wrapper-rpath --disable-wrapper-runpath \
-  CC=gcc-14 CXX=g++-14 FC=gfortran-14 \
+  CC=clang CXX=clang++ FC=flang-22 \
   --with-hwloc=internal --with-libevent=internal --with-pmix=internal \
-  --prefix=$HOME/installed/Compiler/gcc-gfortran-14/openmpi/5.0.7 |& tee configure.gcc-gfortran-14.log
+  --prefix=$HOME/installed/Compiler/appleclang-flang-22/openmpi/5.0.10 |& tee configure.appleclang-flang-22.log
 
-mv config.log config.gcc-gfortran-14.log
-make -j6 |& tee make.gcc-gfortran-14.log
-make install |& tee makeinstall.gcc-gfortran-14.log
-make check |& tee makecheck.gcc-gfortran-14.log
+mv config.log config.appleclang-flang-22.log
+make -j6 |& tee make.appleclang-flang-22.log
+make install |& tee makeinstall.appleclang-flang-22.log
+make check |& tee makecheck.appleclang-flang-22.log
 
 --]]
 
 family("MPI")
-prereq("gcc-gfortran/14")
+prereq("appleclang-flang/22")
 
-local compilername = "gcc-gfortran-14"
+local compilername = "appleclang-flang-22"
 
-local version = "5.0.7"
+local version = "5.0.10"
 local compiler = pathJoin("Compiler",compilername)
 local homedir = os.getenv("HOME")
 local installdir = pathJoin(homedir,"installed")
@@ -38,7 +36,7 @@ local pkgdir = pathJoin(installdir,compiler,"openmpi",version)
 
 -- Setup Modulepath for packages built by this MPI stack
 local mroot = os.getenv("MODULEPATH_ROOT")
-local mdir = pathJoin(mroot,"MPI/gcc-gfortran-14",("openmpi-"..version))
+local mdir = pathJoin(mroot,"MPI/appleclang-flang-22",("openmpi-"..version))
 prepend_path("MODULEPATH", mdir)
 
 setenv("OPENMPI",pkgdir)
@@ -57,5 +55,5 @@ prepend_path("INCLUDE",pathJoin(pkgdir,"include"))
 prepend_path("MANPATH",pathJoin(pkgdir,"share/man"))
 
 -- setenv("OMPI_MCA_btl_tcp_if_include","lo0")
-setenv("OMPI_MCA_io","ompio")
+setenv("OMPI_MCA_io","romio321")
 setenv("OMPI_MCA_btl","^tcp")

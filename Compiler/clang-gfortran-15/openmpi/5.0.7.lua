@@ -5,7 +5,7 @@ NOTE1: Added new OMPI_MCA flag from https://github.com/open-mpi/ompi/issues/8350
 NOTE2: Added the hwloc, libevent, and pmix line as Open MPI 5 seems to need these and
        even if Brew can provide them (like libevent), it doesn't seem to find them
 
-NOTE3: I had to patch Open MPI 5.0.7 due to https://github.com/open-mpi/ompi/pull/13106/files
+NOTE3: I had to patch Open MPI 5.0.10 due to https://github.com/open-mpi/ompi/pull/13106/files
 
 This was built using:
 
@@ -16,7 +16,7 @@ mkdir build-clang-gfortran-15 && cd build-clang-gfortran-15
 ../configure --disable-wrapper-rpath --disable-wrapper-runpath \
   CC=clang CXX=clang++ FC=gfortran-15 \
   --with-hwloc=internal --with-libevent=internal --with-pmix=internal \
-  --prefix=$HOME/installed/Compiler/clang-gfortran-15/openmpi/5.0.7 |& tee configure.clang-gfortran-15.log
+  --prefix=$HOME/installed/Compiler/clang-gfortran-15/openmpi/5.0.10 |& tee configure.clang-gfortran-15.log
 
 mv config.log config.clang-gfortran-15.log
 make -j6 |& tee make.clang-gfortran-15.log
@@ -30,7 +30,7 @@ prereq("clang-gfortran/15")
 
 local compilername = "clang-gfortran-15"
 
-local version = "5.0.7"
+local version = "5.0.10"
 local compiler = pathJoin("Compiler",compilername)
 local homedir = os.getenv("HOME")
 local installdir = pathJoin(homedir,"installed")
