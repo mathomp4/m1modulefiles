@@ -6,6 +6,8 @@ git clone -j 4 --recurse-submodules -b v9.12.0 https://github.com/GEOS-ESM/ESMA-
 
 I then updated ESMF to develop and *undid* my patch for ESMF in the GNUmakefile
 
+==> Update: that failed. I'm now trying feature/darwin-work branch (see https://github.com/esmf-org/esmf/pull/558)
+
 This was built using:
 
 ml appleclang-flang/22 openmpi/5.0.10

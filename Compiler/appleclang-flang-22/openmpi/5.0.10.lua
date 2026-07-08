@@ -55,5 +55,9 @@ prepend_path("INCLUDE",pathJoin(pkgdir,"include"))
 prepend_path("MANPATH",pathJoin(pkgdir,"share/man"))
 
 -- setenv("OMPI_MCA_btl_tcp_if_include","lo0")
-setenv("OMPI_MCA_io","romio321")
-setenv("OMPI_MCA_btl","^tcp")
+-- NOTE: romio321 was set here previously but Open MPI 5.0.10 ships romio341;
+-- the wrong version caused MPI_File_open to return MPI_ERR_INTERN on all
+-- MPI I/O calls. Leaving unset lets Open MPI pick a working component
+-- automatically (tested: both romio341 and ompio work fine).
+-- setenv("OMPI_MCA_io","romio341")
+-- setenv("OMPI_MCA_btl","^tcp")
