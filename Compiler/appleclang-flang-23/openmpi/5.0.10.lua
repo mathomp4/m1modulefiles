@@ -7,26 +7,26 @@ NOTE2: Added the hwloc, libevent, and pmix line as Open MPI 5 seems to need thes
 
 This was built using:
 
-ml appleclang-flang/22
+ml appleclang-flang/23
 
-mkdir build-appleclang-flang-22 && cd build-appleclang-flang-22
+mkdir build-appleclang-flang-23 && cd build-appleclang-flang-23
 
 ../configure --disable-wrapper-rpath --disable-wrapper-runpath \
-  CC=clang CXX=clang++ FC=flang-22 \
+  CC=clang CXX=clang++ FC=flang-23 \
   --with-hwloc=internal --with-libevent=internal --with-pmix=internal \
-  --prefix=$HOME/installed/Compiler/appleclang-flang-22/openmpi/5.0.10 |& tee configure.appleclang-flang-22.log
+  --prefix=$HOME/installed/Compiler/appleclang-flang-23/openmpi/5.0.10 |& tee configure.appleclang-flang-23.log
 
-mv config.log config.appleclang-flang-22.log
-make -j6 |& tee make.appleclang-flang-22.log
-make install |& tee makeinstall.appleclang-flang-22.log
-make check |& tee makecheck.appleclang-flang-22.log
+mv config.log config.appleclang-flang-23.log
+make -j6 |& tee make.appleclang-flang-23.log
+make install |& tee makeinstall.appleclang-flang-23.log
+make check |& tee makecheck.appleclang-flang-23.log
 
 --]]
 
 family("MPI")
-prereq("appleclang-flang/22")
+prereq("appleclang-flang/23")
 
-local compilername = "appleclang-flang-22"
+local compilername = "appleclang-flang-23"
 
 local version = "5.0.10"
 local compiler = pathJoin("Compiler",compilername)
@@ -36,7 +36,7 @@ local pkgdir = pathJoin(installdir,compiler,"openmpi",version)
 
 -- Setup Modulepath for packages built by this MPI stack
 local mroot = os.getenv("MODULEPATH_ROOT")
-local mdir = pathJoin(mroot,"MPI/appleclang-flang-22",("openmpi-"..version))
+local mdir = pathJoin(mroot,"MPI/appleclang-flang-23",("openmpi-"..version))
 prepend_path("MODULEPATH", mdir)
 
 setenv("OPENMPI",pkgdir)

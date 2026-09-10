@@ -2,15 +2,15 @@
 
 This was cloned with:
 
-  git clone -j 4 --recurse-submodules -b v8.32.0 https://github.com/GEOS-ESM/ESMA-Baselibs.git ESMA-Baselibs-8.32.0/src
+  git clone -j 4 --recurse-submodules -b v9.13.0 https://github.com/GEOS-ESM/ESMA-Baselibs.git ESMA-Baselibs-9.13.0/src
 
 This was built using:
 
-ml clang-gfortran/15 openmpi/5.0.7
+ml clang-gfortran/15 openmpi/5.0.10
 
 NOTE: It looks like ESMF_BOPT=g is still needed to successfully build MAPL3 unit tests
 
-make -j6 install ESMF_COMM=openmpi ESMF_COMPILER=gfortranclang ESMF_BOPT=g prefix=$HOME/installed/MPI/clang-gfortran-15/openmpi-5.0.7/Baselibs/8.32.0/Darwin |& tee makeinstall.clang-gfortran-15_openmpi-5.0.7.log
+make -j6 install ESMF_COMM=openmpi ESMF_COMPILER=gfortranclang ESMF_BOPT=g prefix=$HOME/installed/MPI/clang-gfortran-15/openmpi-5.0.10/Baselibs/9.13.0/Darwin |& tee makeinstall.clang-gfortran-15_openmpi-5.0.10.log
 
 NOTE: To build curl on Parcel, I had to do:
 
@@ -33,10 +33,10 @@ as udunits2 needs makeinfo.
 --]]
 
 family("Baselibs")
-prereq("clang-gfortran/15", "openmpi/5.0.7")
+prereq("clang-gfortran/15", "openmpi/5.0.10")
 
 local compilername = "clang-gfortran-15"
-local mpiname = "openmpi-5.0.7"
+local mpiname = "openmpi-5.0.10"
 
 local version = myModuleVersion()
 local pathdir = pathJoin("MPI",compilername,mpiname)

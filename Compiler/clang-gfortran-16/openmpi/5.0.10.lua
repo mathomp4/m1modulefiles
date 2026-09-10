@@ -9,26 +9,26 @@ NOTE3: I had to patch Open MPI 5.0.10 due to https://github.com/open-mpi/ompi/pu
 
 This was built using:
 
-ml clang-gfortran/15
+ml clang-gfortran/16
 
-mkdir build-clang-gfortran-15 && cd build-clang-gfortran-15
+mkdir build-clang-gfortran-16 && cd build-clang-gfortran-16
 
 ../configure --disable-wrapper-rpath --disable-wrapper-runpath \
-  CC=clang CXX=clang++ FC=gfortran-15 \
+  CC=clang CXX=clang++ FC=gfortran-16 \
   --with-hwloc=internal --with-libevent=internal --with-pmix=internal \
-  --prefix=$HOME/installed/Compiler/clang-gfortran-15/openmpi/5.0.10 |& tee configure.clang-gfortran-15.log
+  --prefix=$HOME/installed/Compiler/clang-gfortran-16/openmpi/5.0.10 |& tee configure.clang-gfortran-16.log
 
-mv config.log config.clang-gfortran-15.log
-make -j6 |& tee make.clang-gfortran-15.log
-make install |& tee makeinstall.clang-gfortran-15.log
-make check |& tee makecheck.clang-gfortran-15.log
+mv config.log config.clang-gfortran-16.log
+make -j6 |& tee make.clang-gfortran-16.log
+make install |& tee makeinstall.clang-gfortran-16.log
+make check |& tee makecheck.clang-gfortran-16.log
 
 --]]
 
 family("MPI")
-prereq("clang-gfortran/15")
+prereq("clang-gfortran/16")
 
-local compilername = "clang-gfortran-15"
+local compilername = "clang-gfortran-16"
 
 local version = "5.0.10"
 local compiler = pathJoin("Compiler",compilername)
@@ -38,7 +38,7 @@ local pkgdir = pathJoin(installdir,compiler,"openmpi",version)
 
 -- Setup Modulepath for packages built by this MPI stack
 local mroot = os.getenv("MODULEPATH_ROOT")
-local mdir = pathJoin(mroot,"MPI/clang-gfortran-15",("openmpi-"..version))
+local mdir = pathJoin(mroot,"MPI/clang-gfortran-16",("openmpi-"..version))
 prepend_path("MODULEPATH", mdir)
 
 setenv("OPENMPI",pkgdir)

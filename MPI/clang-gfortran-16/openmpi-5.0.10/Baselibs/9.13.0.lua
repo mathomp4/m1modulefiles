@@ -2,19 +2,15 @@
 
 This was cloned with:
 
-git clone -j 4 --recurse-submodules -b v9.12.0 https://github.com/GEOS-ESM/ESMA-Baselibs.git ESMA-Baselibs-9.21.0-ESMFFlang/src
-
-I then updated ESMF to develop and *undid* my patch for ESMF in the GNUmakefile
-
-==> Update: that failed. I'm now trying feature/darwin-work branch (see https://github.com/esmf-org/esmf/pull/558)
+  git clone -j 4 --recurse-submodules -b v9.13.0 https://github.com/GEOS-ESM/ESMA-Baselibs.git ESMA-Baselibs-9.13.0/src
 
 This was built using:
 
-ml appleclang-flang/22 openmpi/5.0.10
+ml clang-gfortran/16 openmpi/5.0.10
 
-NOTE: We seem to need ESMF_BOPT=g again to avoid some ESMF/MAPL issues
+NOTE: It looks like ESMF_BOPT=g is still needed to successfully build MAPL3 unit tests
 
-make -j6 install ESMF_COMM=openmpi ESMF_COMPILER=llvm ESMF_BOPT=g prefix=$HOME/installed/MPI/appleclang-flang-22/openmpi-5.0.10/Baselibs/9.21.0-ESMFFlang/Darwin |& tee makeinstall.appleclang-flang-22_openmpi-5.0.10.log
+make -j6 install ESMF_COMM=openmpi ESMF_COMPILER=gfortranclang ESMF_BOPT=g prefix=$HOME/installed/MPI/clang-gfortran-16/openmpi-5.0.10/Baselibs/9.13.0/Darwin |& tee makeinstall.clang-gfortran-16_openmpi-5.0.10.log
 
 NOTE: To build curl on Parcel, I had to do:
 
@@ -37,8 +33,9 @@ as udunits2 needs makeinfo.
 --]]
 
 family("Baselibs")
+prereq("clang-gfortran/16", "openmpi/5.0.10")
 
-local compilername = "appleclang-flang-22"
+local compilername = "clang-gfortran-16"
 local mpiname = "openmpi-5.0.10"
 
 local version = myModuleVersion()
